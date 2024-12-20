@@ -13,8 +13,7 @@ export const Snake = (data) => {
         if (shouldUpdateMap) {
             setCachedSnakes(data);
         }
-        console.log(cachedSnakes);
-    },[data]);
+    },[data, shouldUpdateMap]);
 
     return (
         <>
@@ -23,7 +22,7 @@ export const Snake = (data) => {
                     s.geometry.map((g) =>
                         <mesh key={`snake-${ind}-geom-${g[0]}-${g[1]}-${g[2]}`} position={g} rotation={[0, 0, 0]}>
                             <boxGeometry/>
-                            <meshStandardMaterial color={colors[ind]} emissive={colors[ind]} transparent/>
+                            <meshStandardMaterial color={colors[ind]} emissive={colors[ind]} transparent={true}/>
                         </mesh>
                     )
                 )
